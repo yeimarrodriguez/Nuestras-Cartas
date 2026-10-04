@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&family=Parisienne&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="cinema-grain"></div>
+<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+<div id="cursorGlow"></div>
+<div id="introScreen" class="intro-screen">
+  <div class="intro-vignette"></div>
+  <div class="intro-content">
+    <div class="intro-symbol">♥</div>
+    <p class="eyebrow">UNA PEQUEÑA HISTORIA ESCRITA PARA TI</p>
+    <h1>Algunas palabras<br><em>solo existen para ser encontradas.</em></h1>
+    <p class="intro-sub">He dejado algunas cartas aquí.<br>Ábrelas cuando quieras.</p>
+    <button id="enterBtn" class="wax-enter"><span>ABRIR</span></button>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">♥</span><div><strong>Para ti</strong><small>cartas que decidí dejar aquí</small></div></div>
+  <nav>
+    <button id="backMemory" class="nav-btn">Inicio</button>
+    <button id="memoryBtn" class="nav-btn">Recuerdos</button>
+    <button id="adminBtn" class="nav-btn">Mis cartas</button>
+  </nav>
+</header>
+
+<main id="homeView" class="view active">
+  <section class="hero">
+    <p class="eyebrow">CORRESPONDENCIA PRIVADA</p>
+    <h2>Hay cosas que merecen<br><em>ser guardadas.</em></h2>
+    <p class="hero-copy">Aqui encontraras todas las cartas hechas para ti, apartir de AHORAA.</p>
+  </section>
+  <section id="envelopeShelf" class="shelf"></section>
+  <div class="scroll-hint">desliza para explorar <span>↓</span></div>
+</main>
+
+<main id="readerView" class="view reader-view">
+  <button id="backHome" class="back-btn">← Volver</button>
+  <div id="readerStage" class="reader-stage"></div>
+</main>
+
+<main id="memoryView" class="view memory-view">
+  <button id="backMemory" class="back-btn">← Volver</button>
+  <section class="memory-head">
+    <p class="eyebrow">NUESTRO PEQUEÑO ARCHIVO</p>
+    <h2>Recuerdos</h2>
+    <p>Un espacio para guardar fotografías, fechas y momentos.</p>
+  </section>
+  <div id="memoryGrid" class="memory-grid"></div>
+</main>
+
+<main id="adminView" class="view admin-view">
+  <div class="admin-head">
+    <div><p class="eyebrow">PANEL PRIVADO</p><h2>Mis cartas</h2><p>Crea y personaliza tu correspondencia.</p></div>
+    <button id="newLetterBtn" class="primary-btn">+ Nueva carta</button>
+  </div>
+  <div id="letterManager" class="letter-manager"></div>
+</main>
+
+<div id="secretModal" class="secret-modal hidden">
+  <div class="secret-box">
+    <button id="closeSecret">×</button>
+    <div class="secret-icon">✦</div>
+    <p class="eyebrow">ENCONTRASTE ALGO</p>
+    <h2 id="secretTitle">Un secreto</h2>
+    <p id="secretText"></p>
+  </div>
+</div>
+
+<div id="editorModal" class="modal hidden">
+  <div class="modal-card">
+    <button class="modal-close" id="closeEditor">×</button>
+    <div class="modal-title"><p class="eyebrow">CREADOR DE CARTAS</p><h2 id="editorTitle">Nueva carta</h2></div>
+    <form id="letterForm">
+      <input type="hidden" id="letterId">
+      <div class="form-grid">
+        <label>Título<input id="fTitle" maxlength="50" placeholder="Para ti..." required></label>
+        <label>Fecha<input id="fDate" maxlength="40" placeholder="3 de octubre de 2026"></label>
+      </div>
+      <label>Mensaje<textarea id="fMessage" rows="12" placeholder="Escribe aquí tu carta..." required></textarea></label>
+      <div class="form-grid">
+        <label>Nombre de quien recibe<input id="fTo" maxlength="40" placeholder="Mi amor"></label>
+        <label>Firma<input id="fFrom" maxlength="40" placeholder="Con amor"></label>
+      </div>
+      <div class="form-grid">
+        <label>Estilo<select id="fTheme"><option value="burgundy">Rojo vino</option><option value="plum">Morado profundo</option><option value="black">Negro elegante</option></select></label>
+        <label>Sello<select id="fSeal"><option value="heart">Corazón</option><option value="initial">Inicial</option><option value="star">Estrella</option></select></label>
+      </div>
+      <label>Mensaje secreto opcional<input id="fSecret" maxlength="180" placeholder="Algo que aparecerá si encuentra el sello..."></label>
+      <div class="editor-actions"><button type="button" id="previewBtn" class="ghost-btn">Ver carta</button><button type="submit" class="primary-btn">Guardar carta</button></div>
+    </form>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+<script src="config.js"></script><script src="app.js"></script>
+</body>
+</html>
